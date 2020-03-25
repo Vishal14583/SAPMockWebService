@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SOAP-ENV:Header>
+    <WSCorIDSOAPHeader xmlns="http://www.wilytech.com/" CorID="F30CF22F0A50103D36AC8A63D3BC2075,1:1,0,1,hsapdev1dbs03|SAP Netweaver|CR9_J00_server0|WebServices|Client|urn_sap-com_document_sap_rfc_functionsz_mta_interface|Z_MTA_INTERFACE,2,AgAAALZIQgAAAAFGAAAAAQAAABFqYXZhLnV0aWwuSGFzaE1hcAAAAAJIQgAAAAJGAAAAAgAAABBqYXZhLmxhbmcuU3RyaW5nAApUeG5UcmFjZUlkSEIAAAADRQAAAAIAJEYzMDBBNTA0MEE1MDEwM0QzNkFDOEE2MzU5REUyOTIxNjA4NEhCAAAABEUAAAACAA9DYWxsZXJUaW1lc3RhbXBIQgAAAAVFAAAAAgANMTU4NDYyNTY3Njg0Nw=="/>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <Z_MTA_INTERFACE xmlns="urn:sap-com:document:sap:rfc:functions">
+      <Z_MTA_INTERFACE>
+        <IM_ORDER>
+          <UNIQUEID>12647775440</UNIQUEID>
+          <TRANTYP>SALES</TRANTYP>
+          <NAME>Neil Blackham</NAME>
+          <ADDR1>1 High Street</ADDR1>
+          <ADDR2>District 1</ADDR2>
+          <CITY>Taunton</CITY>
+          <POSTCODE>TA1 2DN</POSTCODE>
+          <STATE>Maha</STATE>
+          <COUNTRY>GB</COUNTRY>
+          <PHONE>01823 123456</PHONE>
+          <EMAIL>neil.blackham@ukho.gov.uk</EMAIL>
+          <PONO>Order 123456</PONO>
+          <POURL>https:/www.test.co,uk</POURL>
+          <GROSSAMOUNT>189.98</GROSSAMOUNT>
+          <FEE>2</FEE>
+          <NETAMOUNT>98</NETAMOUNT>
+          <ERDAT>20200319</ERDAT>
+          <CURRENCY>gbp</CURRENCY>
+          <PRODUCTS>
+            <item xmlns="">
+              <PRODNAME>PREDICTION123</PRODNAME>
+              <PRODDESC>Tidal Prediction Service123</PRODDESC>
+              <QTY>1</QTY>
+              <PRICE>200</PRICE>
+            </item>
+            <item xmlns="">
+              <PRODNAME>PREDICTION123</PRODNAME>
+              <PRODDESC>Tidal Prediction Service123</PRODDESC>
+              <QTY>1</QTY>
+              <PRICE>200</PRICE>
+            </item>
+          </PRODUCTS>
+        </IM_ORDER>
+      </Z_MTA_INTERFACE>
+    </Z_MTA_INTERFACE>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
