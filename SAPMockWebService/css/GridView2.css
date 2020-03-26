@@ -1,0 +1,47 @@
+﻿.productsgridview {
+    font-family: "arial";
+    background-color: #FFFFFF;
+    width: 50%;
+    font-size: small;
+}
+
+    .productsgridview th {
+        background:#FF7F50 ;
+        padding: 5px;
+        font-size: small;
+    }
+
+        .productsgridview th a {
+            color: #003300;
+            text-decoration: none;
+        }
+
+            .productsgridview th a:hover {
+                color: #003300;
+                text-decoration: underline;
+            }
+
+    .productsgridview td {
+        background: #fbb37e;
+        color: #333333;
+        font: medium "arial";
+        padding: 4px;
+        text-align: center;
+    }
+
+    .productsgridview tr.even td {
+        background: #FFFFFF;
+    }
+
+    .productsgridview td a {
+        color: #003300;
+        font: bold small "arial";
+        padding: 2px;
+        text-decoration: none;
+    }
+
+        .productsgridview td a:hover {
+            color: red;
+            font-weight: bold;
+            text-decoration: underline;
+        }

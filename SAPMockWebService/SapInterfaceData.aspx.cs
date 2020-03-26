@@ -2,6 +2,7 @@
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Web.UI.WebControls;
 
 namespace SAPMockWebService
@@ -10,11 +11,99 @@ namespace SAPMockWebService
     {
         CloudStorageAccount cloudStorageAccount;
         CloudTableClient cloudTableClient;
-        List<ZMTA_SALES> zMTA_SALEs = null;
+        List<ZMTA_SALES> tpsorders1 = null;
+        List<ZMTA_SALES> tpsorders2 = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            zMTA_SALEs = new List<ZMTA_SALES>();
+            tpsorders1 = new List<ZMTA_SALES>();
+            tpsorders2 = new List<ZMTA_SALES>();
+
+            string orderid = string.Empty;
+
+            if (Request.QueryString["orderid"] != null)
+            {
+                orderid = Request.QueryString["orderid"].ToString();
+
+                lblOrder.Text = "Order Id : ";
+                lblOrderId.Text = orderid.ToString();
+                lblOrder.Visible = true;
+                lblOrderId.Visible = true;
+
+                tpsorders1 = GetAllOrders();
+
+                tpsorders2 = GetOrderById(orderid);
+
+                if (tpsorders2.Count > 0)
+                {
+                    GridView1.DataSource = tpsorders2;
+                    GridView1.DataBind();
+
+                    GridView2.DataSource = tpsorders2[0].PRODUCTS;
+                    GridView2.DataBind();
+                }
+                else
+                {
+                    lblMessage.Text = "Invalid Order Id";
+                    lblMessage.Visible = true;
+                    lblOrder.Visible = false;
+                    lblOrderId.Visible = false;
+                    lblamounttext.Visible = false;
+                    lblamount.Visible = false;
+
+                    lblMessage.ForeColor = Color.Red;
+                }
+
+                decimal sum = 0;
+                if (tpsorders1.Count > 0)
+                {
+                    for (int i = 0; i < tpsorders1.Count; i++)
+                    {
+                        if (tpsorders1[i].GROSSAMOUNT != "" && tpsorders1[i].GROSSAMOUNT != null)
+                        {
+                            sum += decimal.Parse(tpsorders1[i].GROSSAMOUNT);
+                        }
+                    }
+                    lblamounttext.Visible = true;
+                    lblamounttext.Text = "Total payment done till now : ";
+                    lblamount.Visible = true;
+                    lblamount.Text = sum.ToString("0.00");
+                }
+            }
+            else
+            {
+                lblMessage.Visible = true;
+                lblMessage.Text = "Provide orderid in querystring to see the data";
+            }
+        }
+
+        private List<ZMTA_SALES> GetOrderById(string orderid)
+        {
+            List<ZMTA_SALES> orders = null;
+
+            InitializeCloudClient();
+
+            // Retrieve cloud table by tablename.
+            CloudTable table = cloudTableClient.GetTableReference("sapdatatable");
+
+            // Create table Query
+            TableQuery<ZMTA_SALES> query = new TableQuery<ZMTA_SALES>();
+            string partitionFilter = TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.Equal, orderid);
+            TableContinuationToken continuationToken = null;
+
+            var page = table.ExecuteQuerySegmented(query.Where(partitionFilter), continuationToken);
+
+            if (page.Results != null)
+            {
+                orders = new List<ZMTA_SALES>();
+                orders.AddRange(page.Results);
+            }
+            return orders;
+        }
+
+        private List<ZMTA_SALES> GetAllOrders()
+        {
+            List<ZMTA_SALES> orders = null;
 
             InitializeCloudClient();
 
@@ -25,24 +114,13 @@ namespace SAPMockWebService
 
             if (table != null)
             {
+                orders = new List<ZMTA_SALES>();
                 foreach (ZMTA_SALES entity in table.ExecuteQuery(query))
                 {
-                    zMTA_SALEs.Add(entity);
+                    orders.Add(entity);
                 }
             }
-
-            GridView1.DataSource = zMTA_SALEs;
-            GridView1.DataBind();
-
-            decimal sum = 0;
-
-            for (int i = 0; i < GridView1.Rows.Count; i++)
-            {
-                sum += decimal.Parse(GridView1.Rows[i].Cells[14].Text);
-                Label lb = Page.FindControl("totalamount") as Label;
-                totalamount.Text = "Total Gross Amount : " + sum.ToString("0.00");
-            }
-
+            return orders;
         }
 
         private void InitializeCloudClient()
@@ -59,11 +137,14 @@ namespace SAPMockWebService
             }
         }
 
-        //protected void GridView1_RowDataBound1(object sender, GridViewRowEventArgs e)
-        //{
-        //    GridView SC = e.Row.FindControl("GridView2") as GridView;
-        //    SC.DataSource = zMTA_PRODUCTs;
-        //    SC.DataBind();
-        //}
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[0].Visible = false;
+            e.Row.Cells[18].Visible = false;
+            e.Row.Cells[19].Visible = false;
+            e.Row.Cells[20].Visible = false;
+            e.Row.Cells[21].Visible = false;
+
+        }
     }
 }

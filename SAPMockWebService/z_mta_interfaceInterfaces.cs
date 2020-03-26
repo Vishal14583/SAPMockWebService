@@ -27,15 +27,16 @@ using UKHO.TidalPredictionService.Common.Helpers.EntityPropertyConverter;
 /// <remarks/>
 // CODEGEN: The optional WSDL extension element 'Policy' from namespace 'http://schemas.xmlsoap.org/ws/2004/09/policy' was not handled.
 [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
-[System.Web.Services.WebServiceBindingAttribute(Name="z_mta_interface", Namespace="urn:sap-com:document:sap:rfc:functions")]
-public interface IZ_mta_interface {
-    
+[System.Web.Services.WebServiceBindingAttribute(Name = "z_mta_interface", Namespace = "urn:sap-com:document:sap:rfc:functions")]
+public interface IZ_mta_interface
+{
+
     /// <remarks/>
     [System.Web.Services.WebMethodAttribute()]
-    [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:sap-com:document:sap:rfc:functions:z_mta_interface:Z_MTA_INTERFACERequest", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Bare)]
-    [return: System.Xml.Serialization.XmlElementAttribute("Z_MTA_INTERFACEResponse", Namespace="urn:sap-com:document:sap:rfc:functions")]
-   
-    Z_MTA_INTERFACEResponse Z_MTA_INTERFACE([System.Xml.Serialization.XmlElementAttribute("Z_MTA_INTERFACE", Namespace="urn:sap-com:document:sap:rfc:functions")] Z_MTA_INTERFACE Z_MTA_INTERFACE1);
+    [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:sap-com:document:sap:rfc:functions:z_mta_interface:Z_MTA_INTERFACERequest", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
+    [return: System.Xml.Serialization.XmlElementAttribute("Z_MTA_INTERFACEResponse", Namespace = "urn:sap-com:document:sap:rfc:functions")]
+
+    Z_MTA_INTERFACEResponse Z_MTA_INTERFACE([System.Xml.Serialization.XmlElementAttribute("Z_MTA_INTERFACE", Namespace = "urn:sap-com:document:sap:rfc:functions")] Z_MTA_INTERFACE Z_MTA_INTERFACE1);
 }
 
 /// <remarks/>
@@ -43,17 +44,20 @@ public interface IZ_mta_interface {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:sap-com:document:sap:rfc:functions",TypeName ="yq1")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:sap-com:document:sap:rfc:functions")]
 
 public partial class Z_MTA_INTERFACE
-{    
+{
     private ZMTA_SALES iM_ORDERField;
     
-    public ZMTA_SALES IM_ORDER {
-        get {
+    public ZMTA_SALES IM_ORDER
+    {
+        get
+        {
             return this.iM_ORDERField;
         }
-        set {
+        set
+        {
             this.iM_ORDERField = value;
         }
     }
@@ -64,45 +68,46 @@ public partial class Z_MTA_INTERFACE
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:sap-com:document:sap:rfc:functions")]
-public partial class ZMTA_SALES : TableEntity {
-    
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "urn:sap-com:document:sap:rfc:functions")]
+public partial class ZMTA_SALES : TableEntity
+{
+
     private string uNIQUEIDField;
-    
+
     private string tRANTYPField;
-    
+
     private string nAMEField;
-    
+
     private string aDDR1Field;
-    
+
     private string aDDR2Field;
-    
+
     private string cITYField;
-    
+
     private string pOSTCODEField;
-    
+
     private string sTATEField;
-    
+
     private string cOUNTRYField;
-    
+
     private string pHONEField;
-    
+
     private string eMAILField;
-    
+
     private string pONOField;
-    
+
     private string pOURLField;
-    
+
     private string gROSSAMOUNTField;
-    
+
     private string fEEField;
-    
+
     private string nETAMOUNTField;
-    
+
     private string eRDATField;
-    
+
     private string cURRENCYField;
-    
+
     private ZMTA_PRODUCTS[] pRODUCTSField;
 
 
@@ -126,211 +131,268 @@ public partial class ZMTA_SALES : TableEntity {
 
     /// <remarks/>
 
-    public string UNIQUEID {
-        get {
+    public string UNIQUEID
+    {
+        get
+        {
             return this.uNIQUEIDField;
         }
-        set {
+        set
+        {
             this.uNIQUEIDField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string TRANTYP {
-        get {
+
+    public string TRANTYP
+    {
+        get
+        {
             return this.tRANTYPField;
         }
-        set {
+        set
+        {
             this.tRANTYPField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string NAME {
-        get {
+
+    public string NAME
+    {
+        get
+        {
             return this.nAMEField;
         }
-        set {
+        set
+        {
             this.nAMEField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string ADDR1 {
-        get {
+
+    public string ADDR1
+    {
+        get
+        {
             return this.aDDR1Field;
         }
-        set {
+        set
+        {
             this.aDDR1Field = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string ADDR2 {
-        get {
+
+    public string ADDR2
+    {
+        get
+        {
             return this.aDDR2Field;
         }
-        set {
+        set
+        {
             this.aDDR2Field = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string CITY {
-        get {
+
+    public string CITY
+    {
+        get
+        {
             return this.cITYField;
         }
-        set {
+        set
+        {
             this.cITYField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string POSTCODE {
-        get {
+
+    public string POSTCODE
+    {
+        get
+        {
             return this.pOSTCODEField;
         }
-        set {
+        set
+        {
             this.pOSTCODEField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string STATE {
-        get {
+
+    public string STATE
+    {
+        get
+        {
             return this.sTATEField;
         }
-        set {
+        set
+        {
             this.sTATEField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string COUNTRY {
-        get {
+
+    public string COUNTRY
+    {
+        get
+        {
             return this.cOUNTRYField;
         }
-        set {
+        set
+        {
             this.cOUNTRYField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string PHONE {
-        get {
+
+    public string PHONE
+    {
+        get
+        {
             return this.pHONEField;
         }
-        set {
+        set
+        {
             this.pHONEField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string EMAIL {
-        get {
+
+    public string EMAIL
+    {
+        get
+        {
             return this.eMAILField;
         }
-        set {
+        set
+        {
             this.eMAILField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string PONO {
-        get {
+
+    public string PONO
+    {
+        get
+        {
             return this.pONOField;
         }
-        set {
+        set
+        {
             this.pONOField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string POURL {
-        get {
+
+    public string POURL
+    {
+        get
+        {
             return this.pOURLField;
         }
-        set {
+        set
+        {
             this.pOURLField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string GROSSAMOUNT {
-        get {
+
+    public string GROSSAMOUNT
+    {
+        get
+        {
             return this.gROSSAMOUNTField;
         }
-        set {
+        set
+        {
             this.gROSSAMOUNTField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string FEE {
-        get {
+
+    public string FEE
+    {
+        get
+        {
             return this.fEEField;
         }
-        set {
+        set
+        {
             this.fEEField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string NETAMOUNT {
-        get {
+
+    public string NETAMOUNT
+    {
+        get
+        {
             return this.nETAMOUNTField;
         }
-        set {
+        set
+        {
             this.nETAMOUNTField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string ERDAT {
-        get {
+
+    public string ERDAT
+    {
+        get
+        {
             return this.eRDATField;
         }
-        set {
+        set
+        {
             this.eRDATField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string CURRENCY {
-        get {
+
+    public string CURRENCY
+    {
+        get
+        {
             return this.cURRENCYField;
         }
-        set {
+        set
+        {
             this.cURRENCYField = value;
         }
     }
-    
+
     /// <remarks/>
     //[System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("item", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = false)]
     [EntityPropertyConverter(typeof(ZMTA_PRODUCTS[]))]
-    public ZMTA_PRODUCTS[] PRODUCTS {
-        get {
+    public ZMTA_PRODUCTS[] PRODUCTS
+    {
+        get
+        {
             return this.pRODUCTSField;
         }
-        set {
+        set
+        {
             this.pRODUCTSField = value;
         }
     }
@@ -341,60 +403,73 @@ public partial class ZMTA_SALES : TableEntity {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:sap-com:document:sap:rfc:functions")]
-public partial class ZMTA_PRODUCTS {
-    
+[System.Xml.Serialization.XmlTypeAttribute(Namespace = "urn:sap-com:document:sap:rfc:functions")]
+public partial class ZMTA_PRODUCTS
+{
+
     private string pRODNAMEField;
-    
+
     private string pRODDESCField;
-    
+
     private string qTYField;
-    
+
     private string pRICEField;
-    
+
     /// <remarks/>
-    [System.Xml.Serialization.XmlElement("PRODNAME", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-    public string PRODNAME {
-        get {
+    [System.Xml.Serialization.XmlElement("PRODNAME", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = false)]
+    public string PRODNAME
+    {
+        get
+        {
             return this.pRODNAMEField;
         }
-        set {
+        set
+        {
             this.pRODNAMEField = value;
         }
     }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement("PRODDESC", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
 
-    public string PRODDESC {
-        get {
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElement("PRODDESC", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = false)]
+
+    public string PRODDESC
+    {
+        get
+        {
             return this.pRODDESCField;
         }
-        set {
+        set
+        {
             this.pRODDESCField = value;
         }
     }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement("QTY", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
 
-    public string QTY {
-        get {
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElement("QTY", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = false)]
+
+    public string QTY
+    {
+        get
+        {
             return this.qTYField;
         }
-        set {
+        set
+        {
             this.qTYField = value;
         }
     }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElement("PRICE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
 
-    public string PRICE {
-        get {
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElement("PRICE", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = false)]
+
+    public string PRICE
+    {
+        get
+        {
             return this.pRICEField;
         }
-        set {
+        set
+        {
             this.pRICEField = value;
         }
     }
@@ -405,31 +480,38 @@ public partial class ZMTA_PRODUCTS {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:sap-com:document:sap:rfc:functions")]
-public partial class Z_MTA_INTERFACEResponse {
-    
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:sap-com:document:sap:rfc:functions")]
+public partial class Z_MTA_INTERFACEResponse
+{
+
     private string eX_MESSAGEField;
-    
+
     private string eX_STATUSField;
-    
+
     /// <remarks/>
-    
-    public string EX_MESSAGE {
-        get {
+
+    public string EX_MESSAGE
+    {
+        get
+        {
             return this.eX_MESSAGEField;
         }
-        set {
+        set
+        {
             this.eX_MESSAGEField = value;
         }
     }
-    
+
     /// <remarks/>
-    
-    public string EX_STATUS {
-        get {
+
+    public string EX_STATUS
+    {
+        get
+        {
             return this.eX_STATUSField;
         }
-        set {
+        set
+        {
             this.eX_STATUSField = value;
         }
     }

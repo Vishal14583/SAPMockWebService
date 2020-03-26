@@ -82,8 +82,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\minus.png" />
-    <Content Include="Images\plus.png" />
+    <Content Include="css\GridView1.css" />
+    <Content Include="css\GridView2.css" />
     <Content Include="SapInterfaceData.aspx" />
     <Content Include="Web.config" />
     <Content Include="z_mta_interface.asmx" />
