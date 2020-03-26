@@ -67,7 +67,7 @@ namespace SAPMockWebService
                     lblamounttext.Visible = true;
                     lblamounttext.Text = "Total payment done till now : ";
                     lblamount.Visible = true;
-                    lblamount.Text = sum.ToString("0.00");
+                    lblamount.Text = "£ " + sum.ToString("0.00");
                 }
             }
             else
