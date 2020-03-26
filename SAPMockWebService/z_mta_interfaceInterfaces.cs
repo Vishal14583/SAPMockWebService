@@ -44,12 +44,12 @@ public interface IZ_mta_interface
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:sap-com:document:sap:rfc:functions")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "urn:sap-com:document:sap:rfc:functions", TypeName = "yq1")]
 
 public partial class Z_MTA_INTERFACE
 {
     private ZMTA_SALES iM_ORDERField;
-    
+
     public ZMTA_SALES IM_ORDER
     {
         get
