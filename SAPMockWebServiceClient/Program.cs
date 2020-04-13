@@ -49,8 +49,8 @@ namespace SAPMockWebServiceClient
         public HttpWebRequest CreateSOAPWebRequest()
         {
             //Making Web Request  
-            HttpWebRequest Req = (HttpWebRequest)WebRequest.Create(@"http://localhost:50991/z_mta_interface.asmx");
-            //HttpWebRequest Req = (HttpWebRequest)WebRequest.Create(@"https://sapmockwebservice.azurewebsites.net/z_mta_interface.asmx");
+            //HttpWebRequest Req = (HttpWebRequest)WebRequest.Create(@"http://localhost:50991/z_mta_interface.asmx");
+            HttpWebRequest Req = (HttpWebRequest)WebRequest.Create(@"https://sapmockwebservice.azurewebsites.net/z_mta_interface.asmx");
 
 
             //SOAPAction  

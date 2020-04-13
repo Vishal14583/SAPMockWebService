@@ -13,24 +13,57 @@ namespace SAPMockWebService
         CloudTableClient cloudTableClient;
         List<ZMTA_SALES> tpsorders1 = null;
         List<ZMTA_SALES> tpsorders2 = null;
-
+        List<string> stsrList = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.IsPostBack)
+            {
+                BindData();
+            }
+        }
+
+
+        private void BindData()
+        {
             tpsorders1 = new List<ZMTA_SALES>();
+
+            tpsorders1 = GetAllOrders();
+
+            if (tpsorders1.Count > 0)
+            {
+                transactionList.DataSource = tpsorders1;
+
+                tpsorders1.Sort((x, y) => x.Timestamp.CompareTo(y.Timestamp));
+                tpsorders1.Reverse();
+
+                transactionList.DataBind();
+
+                decimal sum = 0;
+
+                for (int i = 0; i < tpsorders1.Count; i++)
+                {
+                    if (tpsorders1[i].GROSSAMOUNT != "" && tpsorders1[i].GROSSAMOUNT != null)
+                    {
+                        sum += decimal.Parse(tpsorders1[i].GROSSAMOUNT);
+                    }
+                }
+                lblamounttext.Visible = true;
+                lblamounttext.Text = "Total payment done till now : ";
+                lblamount.Visible = true;
+                lblamount.Text = "£ " + sum.ToString("0.00");
+            }
+        }
+
+        private void showData(string orderid)
+        {
             tpsorders2 = new List<ZMTA_SALES>();
 
-            string orderid = string.Empty;
-
-            if (Request.QueryString["orderid"] != null)
+            if (orderid != null)
             {
-                orderid = Request.QueryString["orderid"].ToString();
-
                 lblOrder.Text = "Order Id : ";
                 lblOrderId.Text = orderid.ToString();
                 lblOrder.Visible = true;
                 lblOrderId.Visible = true;
-
-                tpsorders1 = GetAllOrders();
 
                 tpsorders2 = GetOrderById(orderid);
 
@@ -53,27 +86,11 @@ namespace SAPMockWebService
 
                     lblMessage.ForeColor = Color.Red;
                 }
-
-                decimal sum = 0;
-                if (tpsorders1.Count > 0)
-                {
-                    for (int i = 0; i < tpsorders1.Count; i++)
-                    {
-                        if (tpsorders1[i].GROSSAMOUNT != "" && tpsorders1[i].GROSSAMOUNT != null)
-                        {
-                            sum += decimal.Parse(tpsorders1[i].GROSSAMOUNT);
-                        }
-                    }
-                    lblamounttext.Visible = true;
-                    lblamounttext.Text = "Total payment done till now : ";
-                    lblamount.Visible = true;
-                    lblamount.Text = "£ " + sum.ToString("0.00");
-                }
             }
             else
             {
                 lblMessage.Visible = true;
-                lblMessage.Text = "Provide orderid in querystring to see the data";
+                lblMessage.Text = "Orderid cannot be NULL";
             }
         }
 
@@ -144,7 +161,21 @@ namespace SAPMockWebService
             e.Row.Cells[19].Visible = false;
             e.Row.Cells[20].Visible = false;
             e.Row.Cells[21].Visible = false;
+        }
+        protected void transactionList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (transactionList.SelectedRow != null)
+            {
+                int index = transactionList.SelectedRow.RowIndex;
+                string orderid = transactionList.SelectedRow.Cells[1].Text;
 
+                showData(orderid);
+            }
+        }
+        protected void transactionList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            transactionList.PageIndex = e.NewPageIndex;
+            BindData();
         }
     }
 }
