@@ -18,6 +18,7 @@ namespace SAPMockWebService
         {
             if (!this.IsPostBack)
             {
+                txtSearch.Text = string.Empty;
                 BindData();
             }
         }
@@ -164,6 +165,8 @@ namespace SAPMockWebService
         }
         protected void transactionList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtSearch.Text = string.Empty;
+
             if (transactionList.SelectedRow != null)
             {
                 int index = transactionList.SelectedRow.RowIndex;
@@ -176,6 +179,16 @@ namespace SAPMockWebService
         {
             transactionList.PageIndex = e.NewPageIndex;
             BindData();
+        }
+
+        protected void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string orderid = txtSearch.Text.ToString();
+
+            if (!string.IsNullOrEmpty(orderid))
+            {
+                showData(orderid);
+            }
         }
     }
 }
