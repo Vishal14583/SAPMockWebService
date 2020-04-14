@@ -59,6 +59,8 @@ namespace SAPMockWebService
         {
             tpsorders2 = new List<ZMTA_SALES>();
 
+            lblMessage.Visible = false;
+
             if (orderid != null)
             {
                 lblOrder.Text = "Order Id : ";
@@ -70,6 +72,9 @@ namespace SAPMockWebService
 
                 if (tpsorders2.Count > 0)
                 {
+                    GridView1.Visible = true;
+                    GridView2.Visible = true;
+
                     GridView1.DataSource = tpsorders2;
                     GridView1.DataBind();
 
@@ -82,8 +87,8 @@ namespace SAPMockWebService
                     lblMessage.Visible = true;
                     lblOrder.Visible = false;
                     lblOrderId.Visible = false;
-                    lblamounttext.Visible = false;
-                    lblamount.Visible = false;
+                    GridView1.Visible = false;
+                    GridView2.Visible = false;
 
                     lblMessage.ForeColor = Color.Red;
                 }
